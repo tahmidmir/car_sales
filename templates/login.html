@@ -3,11 +3,11 @@
 {% block content%}
 
 <div class="container mt-5">
-    {% with  messages = get_flashed_messages(with_categories=true) %}
+    {% with  messages = get_flashed_messages(with_categories=True) %}
     {% if messages %}
     <div>
         {% for category, message in messages %}
-            <div class="alert alert-{{category}} alert-dismissiable fade show" role="alert">
+            <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
                 {{message}}
             </div>
         {% endfor %}
