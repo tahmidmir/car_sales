@@ -38,6 +38,11 @@ def register():
     if request.method == 'POST' and form.validate_on_submit():
         username = form.username.data
         password = form.password.data
+        # Check
+        existing_user = User.query.filter_by(username=username).first()
+        if existing_user:
+            flash("The username is already registered. Please choose another name.", "error")
+            return redirect('/register')
         # hash
         hashed_password = bcrypt.generate_password_hash(password).decode('utf8')
         #create record 
